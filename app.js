@@ -1,5 +1,4 @@
 const express = require('express')
-const ConnectionParameters = require('pg/lib/connection-parameters')
 const app = express()
 const fs = require('fs');
 const path = require('path');
