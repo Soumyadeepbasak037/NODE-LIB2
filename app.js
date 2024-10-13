@@ -53,7 +53,9 @@ app.post('/add-book',upload.none(),(req,res)=>{
     catch(error){
         res.send(error)
     }
-app.get('/clear-book',(req,res)=>{
+
+})
+app.get('/cls',(req,res)=>{
     try{
         fs.writeFileSync(bookfile_path,"")
         res.send("Book Data Cleared")
@@ -61,5 +63,4 @@ app.get('/clear-book',(req,res)=>{
     catch(error){
         res.send(error)
     }
-})
 })
