@@ -48,7 +48,7 @@ app.post('/add-book',upload.none(),(req,res)=>{
         books.push(new_book);
         fs.writeFileSync(bookfile_path,JSON.stringify(books))
         // res.json(new_book);
-        res.sendFile(path.join(__dirname, 'public/index.html'));
+        res.redirect('/')
     }
     catch(error){
         res.send(error)
