@@ -13,4 +13,14 @@
             <button type="submit">Add Book</button>
         </form>
     </div>
+<div>
+    <button onclick="view_books()"></button>
+    <script>
+        const view_books=()=>{
+            fetch("/view-books")
+            .then(response=>response.json())
+            .then(data=>console.log(typeof(data)))
+            }
+    </script>
+</div>
 </body>
