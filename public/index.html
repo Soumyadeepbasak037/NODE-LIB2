@@ -18,6 +18,7 @@
     </div>
 <div>
     <button onclick="view_books()">View Books</button>
+    <button onclick = "clear_books()">Clear Books</button>
     <script>
         const view_books=()=>{
             document.getElementById("lst").replaceChildren();
@@ -31,6 +32,9 @@
                 document.getElementById("lst").appendChild(elem)
             }))
             }
+        const clear_books=()=>{
+            fetch('/cls').then(response=>console.log(response))
+        }
     </script>
 </div>
 </body>
