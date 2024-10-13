@@ -13,13 +13,23 @@
             <button type="submit">Add Book</button>
         </form>
     </div>
+    <div id="lst">
+
+    </div>
 <div>
     <button onclick="view_books()">View Books</button>
     <script>
         const view_books=()=>{
+            document.getElementById("lst").replaceChildren();
             fetch("/view-books")
             .then(response=>response.json())
-            .then(data=>console.log(data))
+            .then(data=>data.forEach(element => {
+                console.log(data)
+                const elem = document.createElement("li")
+                const node = document.createTextNode(element.title+","+element.author)
+                elem.appendChild(node)
+                document.getElementById("lst").appendChild(elem)
+            }))
             }
     </script>
 </div>
