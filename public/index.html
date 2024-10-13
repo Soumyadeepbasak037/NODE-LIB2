@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <form>
-        <input type="text">
-    </form>
-    
+    <div id="form_div">
+        <form action="/add-book" method="POST" enctype="multipart/form-data">
+            <label for="title">Book Title:</label>
+            <input type="text" name="title" required><br>
+            
+            <label for="author">Author:</label>
+            <input type="text" name="author" required><br>
+            
+            <button type="submit">Add Book</button>
+        </form>
+    </div>
 </body>
-</html>

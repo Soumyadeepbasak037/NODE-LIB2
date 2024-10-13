@@ -4,7 +4,8 @@ const app = express()
 const fs = require('fs');
 const path = require('path');
 const { json } = require('stream/consumers');
-
+const multer = require('multer');
+const upload = multer()
 
 
 app.use(express.json());
@@ -34,7 +35,7 @@ app.get('/view-books',(req,res)=>{
     }
 })
 
-app.post('/add-book',(req,res)=>{
+app.post('/add-book',upload.none(),(req,res)=>{
     try{
         const data = fs.readFileSync(bookfile_path,'utf-8');
         const books = JSON.parse(data);
@@ -47,7 +48,8 @@ app.post('/add-book',(req,res)=>{
         
         books.push(new_book);
         fs.writeFileSync(bookfile_path,JSON.stringify(books))
-        res.json(new_book);
+        // res.json(new_book);
+        res.sendFile(path.join(__dirname, 'public/index.html'));
     }
     catch(error){
         res.send(error)
