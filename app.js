@@ -10,7 +10,7 @@ const upload = multer()
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const bookfile_path = path.join(__dirname,'book.json')
 
 
